@@ -63,31 +63,12 @@ onMounted(() => {
 })
 
 function handleOpenChange(openKeys: Key[]) {
-    // if (unref(mode) === MenuModeEnum.HORIZONTAL || !unref(accordion) || unref(getIsMixSidebar)) {
-    //   menuState.openKeys = openKeys;
-    // } else {
-    //   const rootSubMenuKeys: Key[] = [];
-    //   for (const { children, path } of unref(menus)) {
-    //     if (children && children.length > 0) {
-    //       rootSubMenuKeys.push(path);
-    //     }
-    //   }
-    //   if (!unref(getCollapsed)) {
-    //     const latestOpenKey = openKeys.find((key) => menuState.openKeys.indexOf(key) === -1);
-    //     if (rootSubMenuKeys.indexOf(latestOpenKey as string) === -1) {
-    //       menuState.openKeys = openKeys;
-    //     } else {
-    //       menuState.openKeys = latestOpenKey ? [latestOpenKey] : [];
-    //     }
-    //   } else {
-    //     menuState.collapsedOpenKeys = openKeys;
-    //   }
-    // }
-  }
+	console.log("111111")
+}
 
   const handleMenuClick = async ({ key }) => {
-	console.log("key", key)
-    router.push(key)
+	console.log("keykkkkkkkkkkk", key)
+    router.push({name:key})
     state.selectedKeys = [key];
     console.log("1111", state.selectedKeys)
   };

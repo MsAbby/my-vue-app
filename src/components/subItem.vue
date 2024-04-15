@@ -1,7 +1,8 @@
+
 <template>
 	<Menu.Item
 		v-if="!menuHasChildren(item) && getShowMenu"
-		:key="item.path"
+		:key="item.name"
 		v-bind="$props"
 	>
     <!-- 标题 -->
@@ -14,7 +15,7 @@
 	<Menu.SubMenu
 		v-if="menuHasChildren(item) && getShowMenu"
 		:class="[theme]"
-		:key="`submenu-${item.path}`"
+		:key="`submenu-${item.name}`"
 		popupClassName="app-top-menu-popup"
 	>
     <!-- 标题 -->
@@ -26,7 +27,7 @@
 
 		<template
 			v-for="childrenItem in item.children || []"
-			:key="childrenItem.path"
+			:key="childrenItem.name"
 		>
 			<SubItem v-bind="$props" :item="childrenItem" />
 		</template>

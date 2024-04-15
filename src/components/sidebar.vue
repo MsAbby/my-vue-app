@@ -12,7 +12,7 @@
 			:items="items"
 		></a-menu> -->
         <!-- 写法二 ： 去掉v-model，改变selected值会高亮选中的值-->
-        <a-menu
+        <!-- <a-menu
 			:openKeys="state.openKeys"
 			:selectedKeys="state.selectedKeys"
 			mode="inline"
@@ -21,8 +21,8 @@
             @click="handleMenuClick"
             :subMenuOpenDelay="0.2"
 			:items="items"
-		></a-menu>
-        <!-- <Menu
+		></a-menu> -->
+        <Menu
             :selectedKeys="state.selectedKeys"
             :defaultSelectedKeys="state.defaultSelectedKeys"
             mode="inline"
@@ -31,12 +31,11 @@
             @open-change="handleOpenChange"
             @click="handleMenuClick"
             :subMenuOpenDelay="0.2"
-            :items="items"
-        > -->
-    <!-- <template v-for="item in items" :key="item.path">
-      <BasicSubMenuItem :item="item" :theme="theme" :isHorizontal="isHorizontal" />
-    </template> -->
-  <!-- </Menu> -->
+        >
+    	<template v-for="item in items" :key="item.path">
+     		 <BasicSubMenuItem :item="item" :theme="theme" :isHorizontal="isHorizontal" />
+    	</template>
+  </Menu>
 	</div>
 </template>
 <script lang="ts" setup>
@@ -79,15 +78,10 @@ function handleOpenChange(openKeys: Key[]) {
   }
 
   const handleMenuClick = async ({ key }) => {
-    // go(key)
+    router.push(key)
     state.selectedKeys = [key];
     console.log("1111", state.selectedKeys)
   };
-
-  const go = (opt) => {
-    router.push(opt)
-  }
-
 
 const state = reactive({
     defaultSelectedKeys: [],
