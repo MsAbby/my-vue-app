@@ -58,7 +58,37 @@ const system: any = {
         title: "菜单管理",
         ignoreKeepAlive: true,
       },
-      component: () => import('@/views/system/menu/index.vue'),
+      // component: () => import('@/views/system/menu/index.vue'),
+      children: [
+        {
+          path: 'menu',
+          name: 'menu',
+          meta: {
+            title: "菜单",
+            ignoreKeepAlive: true,
+          },
+          component: () => import('@/views/system/menu/detail.vue'),
+        },
+        {
+          path: 'menuDetail2',
+          name: 'MenuDetail2',
+          meta: {
+            title: "菜单详情中的想起",
+            ignoreKeepAlive: true,
+            hideMenu: true,
+          },
+          component: () => import('@/views/system/menu/detail2.vue'),
+        },
+        {
+          path: 'menuDetail',
+          name: 'MenuDetail',
+          meta: {
+            title: "菜单详情",
+            ignoreKeepAlive: true,
+          },
+          component: () => import('@/views/system/menu/detail.vue'),
+        },
+      ],
     },
   ],
 };
